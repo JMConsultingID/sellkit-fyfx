@@ -27,8 +27,6 @@
  * @subpackage Sellkit_Fyfx/includes
  * @author     Ardika JM Consulting <ardi@jm-consulting.id>
  */
- functions.php di tema Anda
-
 // Akses variabel global yang berisi instance dari class Multi_Step
 global $global_multi_step_instance;
 
