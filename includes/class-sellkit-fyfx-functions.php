@@ -30,20 +30,14 @@
 function replace_sellkit_action() {
     // Cek apakah class Multi_Step tersedia
     if ( class_exists( '\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step' ) ) {
-        // Menghapus action asli
-        $settings = array(
-            'show_preview_box' => 'no', // contoh pengaturan
-            'show_breadcrumb' => 'no',   // contoh pengaturan lainnya,
-            'show_shipping_method' => 'no',
-            'show_sticky_cart_details' => 'yes'
-        );        
-        $multi_step_instance = new \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step( $settings );
+      
+        $multi_step_instance = new \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step;
 
         // Pastikan instance telah dibuat dan method 'first_step_begin' ada
         if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'first_step_begin' ) ) {
             // Menghapus action dengan method 'first_step_begin' dan prioritas 10
             remove_action( 'sellkit-checkout-step-a-begins', 40);
-            remove_action('sellkit-checkout-multistep-sidebar-begins', ['\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step', 'sidebar_starts'], 10);
+            remove_action('sellkit-checkout-multistep-sidebar-begins', ['\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step', 'sidebar_starts'], 40);
             add_action( 'wp_footer', 'my_new_function' );
    
         }
