@@ -50,11 +50,26 @@ function replace_sellkit_action() {
             // Menambahkan JavaScript untuk menyembunyikan elemen dengan class .sellkit-multistep-checkout-first
    
         }
-        
+
+        // Remove the original action
+        if (method_exists($multi_step_instance, 'sidebar_starts')) {
+            remove_action('sellkit-checkout-multistep-sidebar-begins', [$multi_step_instance, 'sidebar_starts'], 10);
+        }
+
+        // Add your new action
+        add_action('sellkit-checkout-multistep-sidebar-begins', 'my_new_sidebar_function', 10);
+
+                
         
     }
 }
 add_action( 'init', 'replace_sellkit_action',100 );
+
+// Your new function to replace sidebar_starts
+function my_new_sidebar_function() {
+    // Your content or logic here
+    echo '<div>Your new sidebar content here</div>';
+}
 
 // Fungsi baru Anda yang akan menggantikan first_step_begin
 function my_new_function_be() {
