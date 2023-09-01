@@ -44,6 +44,7 @@ function replace_sellkit_action() {
             // Menghapus action dengan method 'first_step_begin' dan prioritas 10
             remove_action( 'sellkit-checkout-multistep-sidebar-begins', [$multi_step_instance,'sidebar_starts'], 40);
             remove_action('sellkit-checkout-multistep-sidebar-begins', ['\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step', 'sidebar_starts'], 10);
+            remove_all_actions('sellkit-checkout-multistep-sidebar-begins');
             add_action( 'wp_footer', 'my_new_function' );
    
         }
