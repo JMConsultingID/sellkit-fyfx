@@ -53,7 +53,7 @@ function replace_sellkit_action() {
         
     }
 }
-add_action( 'plugins_loaded', 'replace_sellkit_action', 9999 );
+add_action( 'init', 'replace_sellkit_action',9999 );
 
 // Fungsi baru Anda yang akan menggantikan first_step_begin
 function my_new_function() {
