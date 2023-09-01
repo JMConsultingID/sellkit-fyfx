@@ -43,6 +43,7 @@ function replace_sellkit_action() {
         if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'first_step_begin' ) ) {
             // Menghapus action dengan method 'first_step_begin' dan prioritas 10
             remove_action( 'sellkit-checkout-step-a-begins', 40);
+            remove_action('sellkit-checkout-multistep-sidebar-begins', ['\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step', 'sidebar_starts'], 10);
             add_action( 'wp_footer', 'my_new_function' );
    
         }
