@@ -27,58 +27,23 @@
  * @subpackage Sellkit_Fyfx/includes
  * @author     Ardika JM Consulting <ardi@jm-consulting.id>
  */
-function replace_sellkit_action() {
-    // Cek apakah class Multi_Step tersedia
-    if ( class_exists( '\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step' ) ) {
-        // Menghapus action asli
-        $settings = array(
-            // Anda perlu mengisi array ini dengan pengaturan yang sesuai
-            // berdasarkan konstruktor class Multi_Step
-            'show_preview_box' => 'no', // contoh pengaturan
-            'show_breadcrumb' => 'no'    // contoh pengaturan lainnya
-        );
-        
-        $multi_step_instance = new \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step( $settings );
-        
+ functions.php di tema Anda
 
-        // Pastikan instance telah dibuat dan method 'first_step_begin' ada
-        if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'first_step_begin' ) ) {
-            // Menghapus action dengan method 'first_step_begin' dan prioritas 10
-            remove_action( 'sellkit-checkout-step-a-begins', [ $multi_step_instance, 'first_step_begin' ], 20 );
-            add_action( 'sellkit-checkout-step-a-begins', 'my_new_function_be', 20 );
-            // Menambahkan JavaScript untuk menyembunyikan elemen dengan class .sellkit-multistep-checkout-first
-   
-        }
+// Akses variabel global yang berisi instance dari class Multi_Step
+global $global_multi_step_instance;
 
-        // Remove the original action
-        // Pastikan instance telah dibuat dan method 'first_step_begin' ada
-        if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'sidebar_starts' ) ) {
-            remove_action('sellkit-checkout-multistep-sidebar-begins', [$multi_step_instance, 'sidebar_starts'], 10);
-            add_action( 'wp_footer', 'my_new_function' );
-        }
+// Cek apakah instance tersebut valid
+if (isset($global_multi_step_instance) && $global_multi_step_instance instanceof \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step) {
+    // Sekarang Anda bisa berinteraksi dengan instance tersebut
+    // Contoh: Menghapus action yang terkait dengan metode sidebar_starts
+    remove_action('sellkit-checkout-multistep-sidebar-begins', [$global_multi_step_instance, 'sidebar_starts'], 10);
 
-        // Add your new action
-        add_action('sellkit-checkout-multistep-sidebar-begins', 'my_new_sidebar_function', 10);
-
-                
-        
-    }
+    // Menambahkan action baru Anda
+    add_action('sellkit-checkout-multistep-sidebar-begins', 'my_new_sidebar_function', 10);
 }
-add_action( 'init', 'replace_sellkit_action',100 );
 
-// Your new function to replace sidebar_starts
+// Fungsi baru Anda untuk menggantikan sidebar_starts
 function my_new_sidebar_function() {
-    // Your content or logic here
-    echo '<div>Your new sidebar content here</div>';
-}
-
-// Fungsi baru Anda yang akan menggantikan first_step_begin
-function my_new_function_be() {
-    echo '<div class="your-sellkitbe">Your new content herebe</div>';
-}
-
-// Fungsi baru Anda yang akan menggantikan first_step_begin
-function my_new_function() {
     // Konten atau logika Anda di sini
-    echo '<div class="your-sellkit">Your new content here</div>';
+    echo '<div>Your new sidebar content here</div>';
 }
