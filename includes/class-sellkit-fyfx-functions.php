@@ -27,21 +27,42 @@
  * @subpackage Sellkit_Fyfx/includes
  * @author     Ardika JM Consulting <ardi@jm-consulting.id>
  */
-// Akses variabel global yang berisi instance dari class Multi_Step
-global $global_multi_step_instance;
+function replace_sellkit_action() {
+    // Cek apakah class Multi_Step tersedia
+    if ( class_exists( '\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step' ) ) {
+        // Menghapus action asli
+        $settings = array(
+            'show_preview_box' => 'no', // contoh pengaturan
+            'show_breadcrumb' => 'no',   // contoh pengaturan lainnya,
+            'show_shipping_method' => 'no',
+            'show_sticky_cart_details' => 'yes'
+        );        
+        $multi_step_instance = new \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step( $settings );
 
-// Cek apakah instance tersebut valid
-if (isset($global_multi_step_instance) && $global_multi_step_instance instanceof \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step) {
-    // Sekarang Anda bisa berinteraksi dengan instance tersebut
-    // Contoh: Menghapus action yang terkait dengan metode sidebar_starts
-    remove_action('sellkit-checkout-multistep-sidebar-begins', [$global_multi_step_instance, 'sidebar_starts'], 10);
+        // Pastikan instance telah dibuat dan method 'first_step_begin' ada
+        if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'first_step_begin' ) ) {
+            // Menghapus action dengan method 'first_step_begin' dan prioritas 10
+            remove_action( 'sellkit-checkout-step-a-begins', 40);
+            add_action( 'wp_footer', 'my_new_function' );
+   
+        }
 
-    // Menambahkan action baru Anda
-    add_action('sellkit-checkout-multistep-sidebar-begins', 'my_new_sidebar_function', 10);
+        
+        
+    }
 }
+add_action( 'init', 'replace_sellkit_action',100 );
 
-// Fungsi baru Anda untuk menggantikan sidebar_starts
-function my_new_sidebar_function() {
+// Fungsi baru Anda yang akan menggantikan first_step_begin
+function my_new_function() {
     // Konten atau logika Anda di sini
-    echo '<div>Your new sidebar content here</div>';
+    echo '<div class="your-sellkit">Your new content here</div>';
+     echo '<script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var elements = document.querySelectorAll(".sellkit-multistep-checkout-first");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "none";
+            }
+        });
+    </script>';
 }
