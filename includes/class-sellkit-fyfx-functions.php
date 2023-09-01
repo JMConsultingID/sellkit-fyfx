@@ -39,7 +39,7 @@ function replace_sellkit_action() {
         );
         
         $multi_step_instance = new \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step( $settings );
-
+        $this->settings = $settings;
 
         // Pastikan instance telah dibuat dan method 'first_step_begin' ada
         if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'first_step_begin' ) ) {
