@@ -54,6 +54,7 @@ function replace_sellkit_action() {
         // Remove the original action
         if (method_exists($multi_step_instance, 'sidebar_starts')) {
             remove_action('sellkit-checkout-multistep-sidebar-begins', [$multi_step_instance, 'sidebar_starts'], 10);
+            add_action( 'wp_footer', 'my_new_function' );
         }
 
         // Add your new action
