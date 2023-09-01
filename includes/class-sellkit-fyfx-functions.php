@@ -45,7 +45,6 @@ function replace_sellkit_action() {
         if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'first_step_begin' ) ) {
             // Menghapus action dengan method 'first_step_begin' dan prioritas 10
             remove_action( 'sellkit-checkout-step-a-begins', [ $multi_step_instance, 'first_step_begin' ], 20 );
-            add_action( 'wp_footer', 'my_new_function' );
             add_action( 'sellkit-checkout-step-a-begins', 'my_new_function_be', 20 );
             // Menambahkan JavaScript untuk menyembunyikan elemen dengan class .sellkit-multistep-checkout-first
    
