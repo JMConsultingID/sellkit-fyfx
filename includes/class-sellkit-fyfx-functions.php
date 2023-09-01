@@ -31,7 +31,12 @@ function replace_sellkit_action() {
     // Cek apakah class Multi_Step tersedia
     if ( class_exists( '\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step' ) ) {
         // Menghapus action asli
-        $settings = array();        
+        $settings = array(
+            'show_preview_box' => 'no', // contoh pengaturan
+            'show_breadcrumb' => 'no',   // contoh pengaturan lainnya,
+            'show_shipping_method' => 'no',
+            'show_sticky_cart_details' => 'no'
+        );        
         $multi_step_instance = new \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step( $settings );
 
         // Pastikan instance telah dibuat dan method 'first_step_begin' ada
