@@ -27,3 +27,42 @@
  * @subpackage Sellkit_Fyfx/includes
  * @author     Ardika JM Consulting <ardi@jm-consulting.id>
  */
+function replace_sellkit_action() {
+    // Cek apakah class Multi_Step tersedia
+    if ( class_exists( '\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step' ) ) {
+        // Menghapus action asli
+        $settings = array(
+            // Anda perlu mengisi array ini dengan pengaturan yang sesuai
+            // berdasarkan konstruktor class Multi_Step
+            'show_preview_box' => 'no', // contoh pengaturan
+            'show_breadcrumb' => 'no'    // contoh pengaturan lainnya
+        );
+        
+        $multi_step_instance = new \Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step( $settings );
+
+
+        // Pastikan instance telah dibuat dan method 'first_step_begin' ada
+        if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'first_step_begin' ) ) {
+            // Menghapus action dengan method 'first_step_begin' dan prioritas 10
+            remove_action( 'sellkit-checkout-step-a-begins', [ $multi_step_instance, 'first_step_begin' ], 20 );
+            add_action( 'wp_footer', 'my_new_function' );
+            add_action( 'sellkit-checkout-step-a-begins', 'my_new_function_be', 20 );
+            // Menambahkan JavaScript untuk menyembunyikan elemen dengan class .sellkit-multistep-checkout-first
+   
+        }
+        
+        
+    }
+}
+add_action( 'init', 'replace_sellkit_action',100 );
+
+// Fungsi baru Anda yang akan menggantikan first_step_begin
+function my_new_function_be() {
+    echo '<div class="your-sellkitbe">Your new content herebe</div>';
+}
+
+// Fungsi baru Anda yang akan menggantikan first_step_begin
+function my_new_function() {
+    // Konten atau logika Anda di sini
+    echo '<div class="your-sellkit">Your new content here</div>';
+}
