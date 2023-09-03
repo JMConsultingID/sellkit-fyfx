@@ -61,7 +61,7 @@ function my_new_function() {
     <script type="text/javascript">
         let buttonOrder = document.querySelector('.sellkit-one-page-checkout-place-order');
         let reviewOrder = document.querySelector('.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order .woocommerce-checkout-review-order-table');
-        div4.parentNode.insertBefore(buttonOrder, reviewOrder.nextSibling);
+        reviewOrder.parentNode.insertBefore(buttonOrder, reviewOrder.nextSibling);
     </script>
     <?php
 }
