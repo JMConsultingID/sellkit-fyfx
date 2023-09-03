@@ -18,21 +18,16 @@
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
  .woocommerce-billing-fields .billing-method{ display: none; } 
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third{
-    display: flex;
-    flex-direction: column;
-}
+ display: flex; flex-direction: column; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
  section{
 
 }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
- .woocommerce-billing-fields{
-    order: -1;
-}
+ .woocommerce-billing-fields{ order: -1; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
- .woocommerce-billing-fields .sellkit-one-page-checkout-payment-desc{
-    display: none;
- }
-.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third .sellkit-one-page-checkout-place-order .sellkit-checkout-widget-return-button{
-    display: none;
-} 
+ .woocommerce-billing-fields .sellkit-one-page-checkout-payment-desc{ display:
+  none; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .sellkit-one-page-checkout-place-order .sellkit-checkout-widget-return-button{
+ display: none; } 
