@@ -28,6 +28,6 @@
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
  .woocommerce-billing-fields .sellkit-one-page-checkout-payment-desc{ display:
   none!important; }
-.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+.elementor-widget-sellkit-checkout .sellkit-checkout-right-column
  .sellkit-one-page-checkout-place-order .sellkit-checkout-widget-return-button{
  display: none!important; } 
