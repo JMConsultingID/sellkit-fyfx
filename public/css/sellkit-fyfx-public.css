@@ -1,4 +1,38 @@
 /**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
+ * All of the CSS for your public-facing functionality should be included in
+ * this file.
  */
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-first
+ #customer_details{ display: none; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout-first .sellkit-multistep-checkout-first-footer{
+ display: none; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-second{
+ display: none; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third{
+ display: block; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields h4.sellkit-one-page-checkout-billing-header
+  { display: none; } 
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields p.billing-desc{ display: none; } 
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields .billing-method{ display: none; } 
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third{
+    display: flex;
+    flex-direction: column;
+}
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ section{
+
+}
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields{
+    order: -1;
+}
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields .sellkit-one-page-checkout-payment-desc{
+    display: none;
+ }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third .sellkit-one-page-checkout-place-order .sellkit-checkout-widget-return-button{
+    display: none;
+} 
