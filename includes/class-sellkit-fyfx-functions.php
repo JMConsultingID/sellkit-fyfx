@@ -62,6 +62,13 @@ function my_new_function() {
         let buttonOrder = document.querySelector('.sellkit-one-page-checkout-place-order');
         let reviewOrder = document.querySelector('.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order .woocommerce-checkout-review-order-table');
         reviewOrder.parentNode.insertBefore(buttonOrder, reviewOrder.nextSibling);
+
+        jQuery(document).ready(function($) {
+            var heading = $('.sellkit-checkout-order-review-heading.header.heading');
+            if (heading.length && heading.text().trim() === "Your order") {
+                heading.text('Your Product');
+            }
+        });
     </script>
     <?php
 }
