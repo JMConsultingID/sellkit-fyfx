@@ -3,31 +3,31 @@
  * this file.
  */
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-first
- #customer_details{ display: none; }
+ #customer_details{ display: none!important; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout-first .sellkit-multistep-checkout-first-footer{
- display: none; }
+ display: none!important; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-second{
- display: none; }
+ display: none!important; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third{
- display: block; }
+ display: block!important; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
  .woocommerce-billing-fields h4.sellkit-one-page-checkout-billing-header
-  { display: none; } 
+  { display: none!important; } 
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
- .woocommerce-billing-fields p.billing-desc{ display: none; } 
+ .woocommerce-billing-fields p.billing-desc{ display: none!important; } 
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
- .woocommerce-billing-fields .billing-method{ display: none; } 
+ .woocommerce-billing-fields .billing-method{ display: none!important; } 
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third{
- display: flex; flex-direction: column; }
+ display: flex!important; flex-direction: column!important; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
  section{
 
 }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
- .woocommerce-billing-fields{ order: -1; }
+ .woocommerce-billing-fields{ order: -1!important;}
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
  .woocommerce-billing-fields .sellkit-one-page-checkout-payment-desc{ display:
-  none; }
+  none!important; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
  .sellkit-one-page-checkout-place-order .sellkit-checkout-widget-return-button{
- display: none; } 
+ display: none!important; } 
