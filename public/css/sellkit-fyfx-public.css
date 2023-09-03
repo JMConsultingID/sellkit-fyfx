@@ -31,3 +31,8 @@
 .elementor-widget-sellkit-checkout .sellkit-checkout-right-column
  .sellkit-one-page-checkout-place-order .sellkit-checkout-widget-return-button{
  display: none!important; } 
+
+ .elementor-widget-sellkit-checkout .sellkit-checkout-right-column
+ .sellkit-one-page-checkout-place-order #place_order{
+    width: 100%!important;
+ }
