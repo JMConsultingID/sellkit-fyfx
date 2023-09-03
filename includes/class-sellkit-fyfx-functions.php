@@ -66,4 +66,11 @@ function my_new_function() {
     <?php
 }
 
-add_filter( 'woocommerce_ship_to_different_address_checked', '__return_true' );
+add_filter( 'woocommerce_ship_to_different_address_checked', '_return_true' );
+
+add_filter( 'woocommerce_default_address_fields', 'custom_override_default_checkout_fields', 10, 1 );
+function custom_override_default_checkout_fields( $address_fields ) {
+    $address_fields['address_1']['placeholder'] = __( 'Address *', 'woocommerce' );
+
+    return $address_fields;
+}
