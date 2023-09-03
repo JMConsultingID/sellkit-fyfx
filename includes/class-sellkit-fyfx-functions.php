@@ -27,6 +27,11 @@
  * @subpackage Sellkit_Fyfx/includes
  * @author     Ardika JM Consulting <ardi@jm-consulting.id>
  */
+
+if ( strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') !== false ) {
+    add_action( 'init', 'replace_sellkit_action',9999 );
+}
+
 function replace_sellkit_action() {
     // Cek apakah class Multi_Step tersedia
     if ( class_exists( '\Sellkit\Elementor\Modules\Checkout\Classes\Multi_Step' ) ) {
@@ -47,13 +52,9 @@ function replace_sellkit_action() {
             remove_all_actions('sellkit-checkout-multistep-sidebar-begins');
             add_action( 'wp_footer', 'my_new_function' );
    
-        }
-
-        
-        
+        } 
     }
 }
-add_action( 'init', 'replace_sellkit_action',9999 );
 
 // Fungsi baru Anda yang akan menggantikan first_step_begin
 function my_new_function() {
