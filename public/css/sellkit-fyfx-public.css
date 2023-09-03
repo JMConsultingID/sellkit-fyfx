@@ -16,7 +16,7 @@
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
  .woocommerce-billing-fields p.billing-desc{ display: none!important; } 
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
- .woocommerce-billing-fields .billing-method{ display: none!important; } 
+ .woocommerce-billing-fields .billing-method{ display: block!important; } 
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third{
  display: flex!important; flex-direction: column!important; }
 .elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
