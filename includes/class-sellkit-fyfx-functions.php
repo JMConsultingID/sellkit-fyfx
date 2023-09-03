@@ -57,14 +57,11 @@ add_action( 'init', 'replace_sellkit_action',9999 );
 
 // Fungsi baru Anda yang akan menggantikan first_step_begin
 function my_new_function() {
-    // Konten atau logika Anda di sini
-    echo '<div class="your-sellkit">Your new content here</div>';
-     echo '<script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function() {
-            var elements = document.querySelectorAll(".sellkit-multistep-checkout-first");
-            for (var i = 0; i < elements.length; i++) {
-                elements[i].style.display = "none";
-            }
-        });
-    </script>';
+    ?>
+    <script type="text/javascript">
+        let buttonOrder = document.querySelector('.sellkit-one-page-checkout-place-order');
+        let reviewOrder = document.querySelector('.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order .woocommerce-checkout-review-order-table');
+        div4.parentNode.insertBefore(buttonOrder, reviewOrder.nextSibling);
+    </script>
+    <?php
 }
