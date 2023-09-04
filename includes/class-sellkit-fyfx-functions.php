@@ -58,6 +58,8 @@ function sellkit_fyfx_register_settings() {
 
     add_settings_section('sellkit_fyfx_general_settings', 'General Settings', null, 'sellkit-fyfx');
 
+    add_settings_section('sellkit_fyfx_general_settings', 'General Settings', 'sellkit_fyfx_general_settings_callback', 'sellkit-fyfx');
+
     add_settings_field('sellkit_fyfx_enable_plugin', 'Enable Plugin', 'sellkit_fyfx_enable_plugin_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
     add_settings_field('sellkit_fyfx_enable_badges_payment', 'Enable Badges Payment', 'sellkit_fyfx_enable_badges_payment_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
     add_settings_field('sellkit_fyfx_enable_terms_conditions', 'Enable Terms and Conditions', 'sellkit_fyfx_enable_terms_conditions_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
@@ -65,6 +67,11 @@ function sellkit_fyfx_register_settings() {
     add_settings_field('sellkit_fyfx_custom_css', 'Custom CSS', 'sellkit_fyfx_custom_css_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
 }
 add_action('admin_init', 'sellkit_fyfx_register_settings');
+
+// Callback function for the "General Settings" section
+function sellkit_fyfx_general_settings_callback() {
+    echo '<p>Ini adalah pengaturan umum untuk plugin SellKit FX. Silakan sesuaikan sesuai kebutuhan Anda.</p>';
+}
 
 // Callback functions for settings fields
 function sellkit_fyfx_enable_plugin_callback() {
