@@ -49,3 +49,11 @@
  width: 25%; padding-left: 15px; padding-right: 15px; }
 .sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .trustbadges-mobile{
  display: none; order: 5; }
+.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
+ .woocommerce-checkout-review-order-table .sellkit-shipping-total{
+    display: none!important;
+ }
+.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
+ .woocommerce-checkout-review-order-table .sellkit-checkout-widget-divider{
+    border: 0!important;
+ }
