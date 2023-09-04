@@ -44,3 +44,47 @@ function sellkit_fyfx_enqueue_frontend_scripts() {
     // Jika Anda juga ingin menambahkan JS Editor di masa depan, Anda bisa menambahkannya di sini dengan cara yang serupa.
 }
 add_action('wp_enqueue_scripts', 'sellkit_fyfx_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
+
+function sellkit_fyfx_get_badges_html() {
+    return '
+    <div class="trustbadges items-center py-7 trustbadges-desktop">
+        <div class="trustbadges-item">
+            <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/norton.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/norton.png">
+        </div>
+        <div class="trustbadges-item">
+            <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/mcfee.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/mcfee.png">
+        </div>
+        <div class="trustbadges-item">
+            <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/visever.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/visever.png">
+        </div>
+        <div class="trustbadges-item">
+            <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/truste.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/truste.png">
+        </div>
+    </div>';
+}
+
+function sellkit_fyfx_insert_badges_js() {
+    // Cek apakah plugin diaktifkan
+    if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
+        return;
+    }
+
+    // Cek apakah badges diaktifkan
+    if (get_option('sellkit_fyfx_enable_badges_payment') !== 'enable') {
+        return;
+    }
+
+    // Sisipkan JavaScript
+    ?>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var completeOrderButton = document.querySelector('.complete-order');
+            if (completeOrderButton) {
+                var badgesHTML = <?php echo json_encode(sellkit_fyfx_get_badges_html()); ?>;
+                completeOrderButton.insertAdjacentHTML('afterend', badgesHTML);
+            }
+        });
+    </script>
+    <?php
+}
+add_action('wp_footer', 'sellkit_fyfx_insert_badges_js');
