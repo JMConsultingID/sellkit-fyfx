@@ -72,7 +72,7 @@ class Sellkit_Fyfx {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'sellkit-fyfx';
+		$this->plugin_name = 'sellkit-ypf';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -103,24 +103,24 @@ class Sellkit_Fyfx {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-sellkit-fyfx-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-sellkit-ypf-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-sellkit-fyfx-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-sellkit-ypf-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-sellkit-fyfx-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-sellkit-ypf-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-sellkit-fyfx-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-sellkit-ypf-public.php';
 
 		$this->loader = new Sellkit_Fyfx_Loader();
 
