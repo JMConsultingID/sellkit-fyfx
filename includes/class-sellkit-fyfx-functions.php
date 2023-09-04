@@ -148,9 +148,9 @@ function sellkit_fyfx_export_settings() {
         'sellkit_fyfx_custom_js'  => get_option('sellkit_fyfx_custom_js'),
         // Tambahkan pengaturan lainnya jika diperlukan
     );
-
+    $current_date_time = date('Y-m-d_H-i-s');
     header('Content-Type: application/json');
-    header('Content-Disposition: attachment; filename="sellkit-fyfx-settings.json"');
+    header('Content-Disposition: attachment; filename="sellkit-fyfx-settings_' . $current_date_time . '.json"');
     echo json_encode($settings);
     exit;
 }
