@@ -108,9 +108,11 @@ function sellkit_fyfx_enqueue_scripts($hook) {
     wp_enqueue_style('wp-codemirror');
     wp_enqueue_script('wp-codemirror');
     wp_enqueue_script('css-codemirror', plugins_url('../public/js/css-codemirror.js', __FILE__), array('wp-codemirror'), '1.0.0', true);
+
+    // Enqueue the codemirror settings from WordPress
+    wp_enqueue_code_editor(array('type' => 'text/css'));
 }
 add_action('admin_enqueue_scripts', 'sellkit_fyfx_enqueue_scripts');
-
 
 
 // Check if the plugin is enabled and if the current request URI matches the given pattern
