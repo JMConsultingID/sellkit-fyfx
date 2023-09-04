@@ -39,7 +39,7 @@ function sellkit_fyfx_add_terms_and_conditions_checkbox() {
         wc_get_template('checkout/terms.php');
     }
 }
-if (get_option('sellkit_fyfx_enable_terms_conditions') !== 'enable') {
+if (get_option('sellkit_fyfx_enable_terms_conditions') === 'enable') {
 add_action('wp_footer', 'sellkit_fyfx_add_terms_and_conditions_checkbox');
 }
 
