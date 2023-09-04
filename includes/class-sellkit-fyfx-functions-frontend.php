@@ -19,6 +19,7 @@ function replace_sellkit_action() {
 }
 
 function sellkit_fyfx_add_terms_and_conditions_checkbox() {
+    $value = get_option('sellkit_fyfx_enable_terms_conditions');
     // Cek apakah plugin diaktifkan
     if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
         return;
@@ -33,12 +34,14 @@ function sellkit_fyfx_add_terms_and_conditions_checkbox() {
         return;
     }
 
+    echo "<div class='sellkit_enable_term'>".echo $value."</div>";
+
     $checkout = WC_Checkout::instance();
 
     if ($checkout->get_value('terms') && apply_filters('woocommerce_checkout_show_terms', true) && function_exists('wc_terms_and_conditions_checkbox_enabled') && wc_terms_and_conditions_checkbox_enabled()) {
         if (get_option('sellkit_fyfx_enable_terms_conditions') === 'enable') {
             wc_get_template('checkout/terms.php');
-            echo get_option('sellkit_fyfx_enable_terms_conditions');
+            echo $value;
         } else {
             echo "";
         }
