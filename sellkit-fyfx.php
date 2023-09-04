@@ -13,7 +13,7 @@
  * @package           Sellkit_Fyfx
  *
  * @wordpress-plugin
- * Plugin Name:       Sellkit Add-on - FYFX Checkout
+ * Plugin Name:       Sellkit Add-on - YPF Checkout
  * Plugin URI:        https://fundyourfx.com
  * Description:       Plugin for Customize Sellkit Checkout Page
  * Version:           1.0.0
