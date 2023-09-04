@@ -64,6 +64,7 @@ register_deactivation_hook( __FILE__, 'deactivate_sellkit_fyfx' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-fyfx.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-fyfx-functions.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-fyfx-functions-frontend.php';
 /**
  * Begins execution of the plugin.
  *
