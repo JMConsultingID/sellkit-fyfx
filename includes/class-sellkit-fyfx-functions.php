@@ -30,7 +30,7 @@
 
 // Add menu item
 function sellkit_fyfx_add_admin_menu() {
-    add_menu_page('SellKit FX', 'SellKit FX', 'manage_options', 'sellkit-ypf', 'sellkit_fyfx_settings_page', 'dashicons-beer', '58.5');
+    add_menu_page('SellKit FYP', 'SellKit FYP', 'manage_options', 'sellkit-ypf', 'sellkit_fyfx_settings_page', 'dashicons-beer', '58.5');
 }
 add_action('admin_menu', 'sellkit_fyfx_add_admin_menu');
 
@@ -121,7 +121,7 @@ function sellkit_fyfx_custom_js_callback() {
 }
 
 function sellkit_fyfx_enqueue_scripts($hook) {
-    if ($hook != 'toplevel_page_sellkit-fyfx') {
+    if ($hook != 'toplevel_page_sellkit-ypf') {
         return;
     }
 
@@ -153,7 +153,7 @@ function sellkit_fyfx_export_settings() {
     );
     $current_date_time = date('Y-m-d_H-i-s');
     header('Content-Type: application/json');
-    header('Content-Disposition: attachment; filename="sellkit-fyfx-settings_' . $current_date_time . '.json"');
+    header('Content-Disposition: attachment; filename="sellkit-ypf-settings_' . $current_date_time . '.json"');
     echo json_encode($settings);
     exit;
 }
