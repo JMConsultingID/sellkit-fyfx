@@ -109,7 +109,7 @@ function sellkit_fyfx_insert_badges_js() {
     // Sisipkan JavaScript
     ?>
     <script type="text/javascript">
-        jQuery(document).on('sellkit:buttonMoved', function() {
+        jQuery(document).ready(function($) {
             var completeOrderButton = document.querySelector('.sellkit-one-page-checkout-place-order');
             if (completeOrderButton) {
                 var badgesHTML = <?php echo json_encode(sellkit_fyfx_get_badges_html()); ?>;
