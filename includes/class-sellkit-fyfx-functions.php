@@ -44,6 +44,16 @@ function sellkit_fyfx_settings_page() {
             <?php do_settings_sections('sellkit-fyfx'); ?>
             <?php submit_button(); ?>
         </form>
+        <hr>
+        <h3>Export Settings</h3>
+        <p>
+            <button type="button" class="button" id="sellkit-fyfx-export">Export Settings</button>
+        </p>
+        <h3>Import Settings</h3>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="sellkit_fyfx_import_file" accept=".json">
+            <button type="submit" class="button" name="sellkit_fyfx_import">Import Settings</button>
+        </form>
     </div>
     <?php
 }
@@ -123,6 +133,55 @@ function sellkit_fyfx_enqueue_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'sellkit_fyfx_enqueue_scripts');
 
+
+function sellkit_fyfx_export_settings() {
+    if (!isset($_GET['sellkit_fyfx_export'])) {
+        return;
+    }
+
+    $settings = array(
+        'sellkit_fyfx_enable_plugin' => get_option('sellkit_fyfx_enable_plugin'),
+        'sellkit_fyfx_enable_badges_payment' => get_option('sellkit_fyfx_enable_badges_payment'),
+        'sellkit_fyfx_enable_terms_conditions' => get_option('sellkit_fyfx_enable_terms_conditions'),
+        'sellkit_fyfx_enable_css_editor' => get_option('sellkit_fyfx_enable_css_editor'),
+        'sellkit_fyfx_custom_css' => get_option('sellkit_fyfx_custom_css'),
+        'sellkit_fyfx_custom_js'  => get_option('sellkit_fyfx_custom_js'),
+        // Tambahkan pengaturan lainnya jika diperlukan
+    );
+
+    header('Content-Type: application/json');
+    header('Content-Disposition: attachment; filename="sellkit-fyfx-settings.json"');
+    echo json_encode($settings);
+    exit;
+}
+add_action('admin_init', 'sellkit_fyfx_export_settings');
+
+function sellkit_fyfx_import_settings() {
+    if (!isset($_FILES['sellkit_fyfx_import_file'])) {
+        return;
+    }
+
+    $file = $_FILES['sellkit_fyfx_import_file'];
+    if ($file['type'] !== 'application/json') {
+        wp_die('Invalid file type.');
+    }
+
+    $settings = json_decode(file_get_contents($file['tmp_name']), true);
+    if (!$settings) {
+        wp_die('Invalid file content.');
+    }
+
+    foreach ($settings as $key => $value) {
+        update_option($key, $value);
+    }
+
+    wp_redirect(add_query_arg('settings-imported', 'true', admin_url('admin.php?page=sellkit-fyfx')));
+    exit;
+}
+add_action('admin_init', 'sellkit_fyfx_import_settings');
+
+
+//------------------- Start Front End Functions --------------------------------
 
 // Check if the plugin is enabled and if the current request URI matches the given pattern
 function sellkit_fyfx_check_request_uri() {
