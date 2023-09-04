@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://fundyourfx.com
+ * @link       https://yourpropfirm.com/
  * @since      1.0.0
  *
  * @package    Sellkit_Fyfx
@@ -45,13 +45,13 @@ function sellkit_ypf_settings_page() {
             <?php submit_button(); ?>
         </form>
         <hr>
-        <div class="sellkit-fyfx-export" style="width:50%;float:left;">
+        <div class="sellkit-ypf-export" style="width:50%;float:left;">
         <h3>Export Settings</h3>
         <p>
-            <button type="button" class="button" id="sellkit-fyfx-export">Export Settings</button>
+            <button type="button" class="button" id="sellkit-ypf-export">Export Settings</button>
         </p>
         </div>
-        <div class="sellkit-fyfx-import" style="width:50%;float:left;">
+        <div class="sellkit-ypf-import" style="width:50%;float:left;">
         <h3>Import Settings</h3>
         <form method="post" enctype="multipart/form-data">
             <input type="file" name="sellkit_ypf_import_file" accept=".json">
@@ -109,6 +109,7 @@ function sellkit_ypf_enable_css_editor_callback() {
     $value = get_option('sellkit_ypf_enable_css_editor', 'disable');
     echo '<select name="sellkit_ypf_enable_css_editor"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
 }
+
 
 function sellkit_ypf_custom_css_callback() {
     $value = get_option('sellkit_ypf_custom_css', '');
@@ -187,7 +188,7 @@ function sellkit_ypf_admin_scripts() {
     ?>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-            var exportButton = document.getElementById('sellkit-fyfx-export');
+            var exportButton = document.getElementById('sellkit-ypf-export');
             if (exportButton) {
                 exportButton.addEventListener('click', function() {
                     window.location.href = '<?php echo admin_url('admin.php?page=sellkit-ypf&sellkit_ypf_export=true'); ?>';

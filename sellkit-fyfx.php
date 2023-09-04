@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://fundyourfx.com
+ * @link              https://yourpropfirm.com/
  * @since             1.0.0
  * @package           Sellkit_Fyfx
  *
  * @wordpress-plugin
  * Plugin Name:       Sellkit Add-on - YPF Checkout
- * Plugin URI:        https://fundyourfx.com
+ * Plugin URI:        https://yourpropfirm.com/
  * Description:       Plugin for Customize Sellkit Checkout Page
  * Version:           1.0.0
  * Author:            Ardika JM Consulting
- * Author URI:        https://fundyourfx.com
+ * Author URI:        https://yourpropfirm.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       sellkit-fyfx
