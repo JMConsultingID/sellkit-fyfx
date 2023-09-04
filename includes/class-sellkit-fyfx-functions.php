@@ -30,7 +30,7 @@
 
 // Add menu item
 function sellkit_fyfx_add_admin_menu() {
-    add_menu_page('SellKit FX', 'SellKit FX', 'manage_options', 'sellkit-fyfx', 'sellkit_fyfx_settings_page', 'dashicons-beer', '58.5');
+    add_menu_page('SellKit FX', 'SellKit FX', 'manage_options', 'sellkit-ypf', 'sellkit_fyfx_settings_page', 'dashicons-beer', '58.5');
 }
 add_action('admin_menu', 'sellkit_fyfx_add_admin_menu');
 
@@ -41,7 +41,7 @@ function sellkit_fyfx_settings_page() {
         <h2>SellKit FX Settings</h2>
         <form method="post" action="options.php">
             <?php settings_fields('sellkit_fyfx_settings_group'); ?>
-            <?php do_settings_sections('sellkit-fyfx'); ?>
+            <?php do_settings_sections('sellkit-ypf'); ?>
             <?php submit_button(); ?>
         </form>
         <hr>
@@ -71,16 +71,16 @@ function sellkit_fyfx_register_settings() {
     register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_custom_css');
     register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_custom_js');
 
-    add_settings_section('sellkit_fyfx_general_settings', 'General Settings', null, 'sellkit-fyfx');
+    add_settings_section('sellkit_fyfx_general_settings', 'General Settings', null, 'sellkit-ypf');
 
-    add_settings_section('sellkit_fyfx_general_settings', 'General Settings', 'sellkit_fyfx_general_settings_callback', 'sellkit-fyfx');
+    add_settings_section('sellkit_fyfx_general_settings', 'General Settings', 'sellkit_fyfx_general_settings_callback', 'sellkit-ypf');
 
-    add_settings_field('sellkit_fyfx_enable_plugin', 'Enable Plugin', 'sellkit_fyfx_enable_plugin_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_enable_badges_payment', 'Enable Badges Payment', 'sellkit_fyfx_enable_badges_payment_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_enable_terms_conditions', 'Enable Terms and Conditions', 'sellkit_fyfx_enable_terms_conditions_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_enable_css_editor', 'Enable CSS/JS Editor', 'sellkit_fyfx_enable_css_editor_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_custom_css', 'Custom CSS', 'sellkit_fyfx_custom_css_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_custom_js', 'Custom JS', 'sellkit_fyfx_custom_js_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
+    add_settings_field('sellkit_fyfx_enable_plugin', 'Enable Plugin', 'sellkit_fyfx_enable_plugin_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
+    add_settings_field('sellkit_fyfx_enable_badges_payment', 'Enable Badges Payment', 'sellkit_fyfx_enable_badges_payment_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
+    add_settings_field('sellkit_fyfx_enable_terms_conditions', 'Enable Terms and Conditions', 'sellkit_fyfx_enable_terms_conditions_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
+    add_settings_field('sellkit_fyfx_enable_css_editor', 'Enable CSS/JS Editor', 'sellkit_fyfx_enable_css_editor_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
+    add_settings_field('sellkit_fyfx_custom_css', 'Custom CSS', 'sellkit_fyfx_custom_css_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
+    add_settings_field('sellkit_fyfx_custom_js', 'Custom JS', 'sellkit_fyfx_custom_js_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
 }
 add_action('admin_init', 'sellkit_fyfx_register_settings');
 
