@@ -57,3 +57,13 @@
  .woocommerce-checkout-review-order-table .sellkit-checkout-widget-divider{
     border: 0!important;
  }
+
+ @media only screen and (max-width: 600px) {
+   .trustbadges-desktop {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        order: 5;
+    }
+ }
