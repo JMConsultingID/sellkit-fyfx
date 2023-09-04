@@ -36,15 +36,7 @@ function sellkit_fyfx_add_terms_and_conditions_checkbox() {
 
     $checkout = WC_Checkout::instance();
 
-    if ($checkout->get_value('terms') && apply_filters('woocommerce_checkout_show_terms', true) && function_exists('wc_terms_and_conditions_checkbox_enabled') && wc_terms_and_conditions_checkbox_enabled()) {
-        if (get_option('sellkit_fyfx_enable_terms_conditions') === 'enable') {
-            wc_get_template('checkout/terms.php');
-            echo $value;
-            echo "<div class='sellkit_enable_term'>".$value."</div>";
-        } else {
-            echo "";
-        }
-    }
+  
 }
 add_action('wp_footer', 'sellkit_fyfx_add_terms_and_conditions_checkbox');
 
