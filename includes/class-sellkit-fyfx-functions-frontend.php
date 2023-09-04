@@ -36,3 +36,26 @@ function my_new_function() {
     </script>
     <?php
 }
+
+function sellkit_fyfx_enqueue_frontend_scripts() {
+    // Cek apakah plugin diaktifkan
+    if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
+        return;
+    }
+
+    // Jika CSS Editor diaktifkan, tambahkan CSS ke frontend
+    if (get_option('sellkit_fyfx_enable_css_editor') === 'enable') {
+        $custom_css = get_option('sellkit_fyfx_custom_css');
+        if (!empty($custom_css)) {
+            wp_add_inline_style('wp-block-library', $custom_css); // 'wp-block-library' adalah handle untuk salah satu stylesheets inti WordPress. Anda bisa menggantinya dengan handle stylesheet lain jika diperlukan.
+        }
+
+        $custom_js = get_option('sellkit_fyfx_custom_js');
+        if (!empty($custom_js)) {
+            wp_add_inline_script('jquery-core', $custom_js); // 'jquery-core' adalah handle untuk jQuery, yang merupakan salah satu skrip inti WordPress. Anda bisa menggantinya dengan handle skrip lain jika diperlukan.
+        }
+    }
+
+    // Jika Anda juga ingin menambahkan JS Editor di masa depan, Anda bisa menambahkannya di sini dengan cara yang serupa.
+}
+add_action('wp_enqueue_scripts', 'sellkit_fyfx_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
