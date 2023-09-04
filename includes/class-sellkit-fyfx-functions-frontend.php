@@ -13,28 +13,9 @@ function replace_sellkit_action() {
 
         // Pastikan instance telah dibuat dan method 'first_step_begin' ada
         if ( isset( $multi_step_instance ) && method_exists( $multi_step_instance, 'first_step_begin' ) ) {
-            add_action( 'wp_footer', 'my_new_function' );
-   
+               
         } 
     }
-}
-
-// Fungsi baru Anda yang akan menggantikan first_step_begin
-function my_new_function() {
-    ?>
-    <script type="text/javascript">
-        let buttonOrder = document.querySelector('.sellkit-one-page-checkout-place-order');
-        let reviewOrder = document.querySelector('.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order .woocommerce-checkout-review-order-table');
-        reviewOrder.parentNode.insertBefore(buttonOrder, reviewOrder.nextSibling);
-
-        jQuery(document).ready(function($) {
-            var heading = $('.sellkit-checkout-order-review-heading.header.heading');
-            if (heading.length && heading.text().trim() === "Your order") {
-                heading.text('Your Product');
-            }
-        });
-    </script>
-    <?php
 }
 
 function sellkit_fyfx_enqueue_frontend_scripts() {
@@ -43,7 +24,7 @@ function sellkit_fyfx_enqueue_frontend_scripts() {
         return;
     }
 
-    if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') !== true) {
+    if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') === false) {
         return;
     }
 
