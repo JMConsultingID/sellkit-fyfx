@@ -38,7 +38,7 @@ add_action('admin_menu', 'sellkit_ypf_add_admin_menu');
 function sellkit_ypf_settings_page() {
     ?>
     <div class="wrap">
-        <h2>SellKit FX Settings</h2>
+        <h2>SellKit YPF Settings</h2>
         <form method="post" action="options.php">
             <?php settings_fields('sellkit_ypf_settings_group'); ?>
             <?php do_settings_sections('sellkit-ypf'); ?>
@@ -86,7 +86,7 @@ add_action('admin_init', 'sellkit_ypf_register_settings');
 
 // Callback function for the "General Settings" section
 function sellkit_ypf_general_settings_callback() {
-    echo '<p>These are the general settings for the SellKit FX plugin. Please feel free to customize them according to your needs.</p>';
+    echo '<p>These are the general settings for the SellKit YPF plugin. Please feel free to customize them according to your needs.</p>';
 }
 
 // Callback functions for settings fields
