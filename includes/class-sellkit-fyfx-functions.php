@@ -30,7 +30,7 @@
 
 // Add menu item
 function sellkit_ypf_add_admin_menu() {
-    add_menu_page('SellKit FYP', 'SellKit FYP', 'manage_options', 'sellkit-ypf', 'sellkit_ypf_settings_page', 'dashicons-beer', '58.5');
+    add_menu_page('SellKit YPF', 'SellKit YPF', 'manage_options', 'sellkit-ypf', 'sellkit_ypf_settings_page', 'dashicons-beer', '58.5');
 }
 add_action('admin_menu', 'sellkit_ypf_add_admin_menu');
 
