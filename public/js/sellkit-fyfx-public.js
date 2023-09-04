@@ -28,5 +28,14 @@
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
+	
+	jQuery(document).ready(function($) {
+    var $completeOrderButton = $('.sellkit-one-page-checkout-place-order');
+    var $termsCheckbox = $('.woocommerce-terms-and-conditions-wrapper');
+
+    if ($completeOrderButton.length && $termsCheckbox.length) {
+        $termsCheckbox.detach().insertBefore($completeOrderButton);
+    }
+});
 
 })( jQuery );
