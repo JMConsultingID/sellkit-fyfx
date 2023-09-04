@@ -59,7 +59,7 @@
  }
 
  @media only screen and (max-width: 600px) {
-   .sellkit-one-page-checkout-place-order #place_order {
+   .sellkit-checkout-widget-main-wrapper .sellkit-one-page-checkout-place-order #place_order {
      width: 100%!important;
    }
    .trustbadges-desktop {
