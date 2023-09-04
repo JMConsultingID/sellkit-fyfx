@@ -18,10 +18,10 @@ function replace_sellkit_action() {
     }
 }
 
-function sellkit_fyfx_add_terms_and_conditions_checkbox() {
-    $value = get_option('sellkit_fyfx_enable_terms_conditions');
+function sellkit_ypf_add_terms_and_conditions_checkbox() {
+    $value = get_option('sellkit_ypf_enable_terms_conditions');
     // Cek apakah plugin diaktifkan
-    if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
+    if (get_option('sellkit_ypf_enable_plugin') !== 'enable') {
         return;
     }
 
@@ -31,7 +31,7 @@ function sellkit_fyfx_add_terms_and_conditions_checkbox() {
 
 
     // Cek apakah opsi "term and condition" diaktifkan
-    if (get_option('sellkit_fyfx_enable_terms_conditions') !== 'enable') {
+    if (get_option('sellkit_ypf_enable_terms_conditions') !== 'enable') {
         ?>
          <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function() {
@@ -44,11 +44,11 @@ function sellkit_fyfx_add_terms_and_conditions_checkbox() {
         <?php
     }  
 }
-add_action('wp_footer', 'sellkit_fyfx_add_terms_and_conditions_checkbox');
+add_action('wp_footer', 'sellkit_ypf_add_terms_and_conditions_checkbox');
 
-function sellkit_fyfx_enqueue_frontend_scripts() {
+function sellkit_ypf_enqueue_frontend_scripts() {
     // Cek apakah plugin diaktifkan
-    if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
+    if (get_option('sellkit_ypf_enable_plugin') !== 'enable') {
         return;
     }
 
@@ -57,13 +57,13 @@ function sellkit_fyfx_enqueue_frontend_scripts() {
     }
 
     // Jika CSS Editor diaktifkan, tambahkan CSS ke frontend
-    if (get_option('sellkit_fyfx_enable_css_editor') === 'enable') {
-        $custom_css = get_option('sellkit_fyfx_custom_css');
+    if (get_option('sellkit_ypf_enable_css_editor') === 'enable') {
+        $custom_css = get_option('sellkit_ypf_custom_css');
         if (!empty($custom_css)) {
             wp_add_inline_style('wp-block-library', $custom_css); // 'wp-block-library' adalah handle untuk salah satu stylesheets inti WordPress. Anda bisa menggantinya dengan handle stylesheet lain jika diperlukan.
         }
 
-        $custom_js = get_option('sellkit_fyfx_custom_js');
+        $custom_js = get_option('sellkit_ypf_custom_js');
         if (!empty($custom_js)) {
             wp_add_inline_script('jquery-core', $custom_js); // 'jquery-core' adalah handle untuk jQuery, yang merupakan salah satu skrip inti WordPress. Anda bisa menggantinya dengan handle skrip lain jika diperlukan.
         }
@@ -71,9 +71,9 @@ function sellkit_fyfx_enqueue_frontend_scripts() {
 
     // Jika Anda juga ingin menambahkan JS Editor di masa depan, Anda bisa menambahkannya di sini dengan cara yang serupa.
 }
-add_action('wp_enqueue_scripts', 'sellkit_fyfx_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
+add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
 
-function sellkit_fyfx_get_badges_html() {
+function sellkit_ypf_get_badges_html() {
     return '
     <div class="trustbadges items-center py-7 trustbadges-desktop">
         <div class="trustbadges-item">
@@ -91,9 +91,9 @@ function sellkit_fyfx_get_badges_html() {
     </div>';
 }
 
-function sellkit_fyfx_insert_badges_js() {
+function sellkit_ypf_insert_badges_js() {
     // Cek apakah plugin diaktifkan
-    if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
+    if (get_option('sellkit_ypf_enable_plugin') !== 'enable') {
         return;
     }
 
@@ -102,7 +102,7 @@ function sellkit_fyfx_insert_badges_js() {
     }
 
     // Cek apakah badges diaktifkan
-    if (get_option('sellkit_fyfx_enable_badges_payment') !== 'enable') {
+    if (get_option('sellkit_ypf_enable_badges_payment') !== 'enable') {
         return;
     }
 
@@ -112,11 +112,11 @@ function sellkit_fyfx_insert_badges_js() {
         jQuery(document).ready(function($) {
             var completeOrderButton = document.querySelector('.sellkit-one-page-checkout-place-order');
             if (completeOrderButton) {
-                var badgesHTML = <?php echo json_encode(sellkit_fyfx_get_badges_html()); ?>;
+                var badgesHTML = <?php echo json_encode(sellkit_ypf_get_badges_html()); ?>;
                 completeOrderButton.insertAdjacentHTML('afterend', badgesHTML);
             }
         });
     </script>
     <?php
 }
-add_action('wp_footer', 'sellkit_fyfx_insert_badges_js');
+add_action('wp_footer', 'sellkit_ypf_insert_badges_js');

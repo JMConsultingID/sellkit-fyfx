@@ -29,18 +29,18 @@
  */
 
 // Add menu item
-function sellkit_fyfx_add_admin_menu() {
-    add_menu_page('SellKit YPF', 'SellKit YPF', 'manage_options', 'sellkit-ypf', 'sellkit_fyfx_settings_page', 'dashicons-beer', '58.5');
+function sellkit_ypf_add_admin_menu() {
+    add_menu_page('SellKit YPF', 'SellKit YPF', 'manage_options', 'sellkit-ypf', 'sellkit_ypf_settings_page', 'dashicons-beer', '58.5');
 }
-add_action('admin_menu', 'sellkit_fyfx_add_admin_menu');
+add_action('admin_menu', 'sellkit_ypf_add_admin_menu');
 
 // Settings page
-function sellkit_fyfx_settings_page() {
+function sellkit_ypf_settings_page() {
     ?>
     <div class="wrap">
         <h2>SellKit YPF Settings</h2>
         <form method="post" action="options.php">
-            <?php settings_fields('sellkit_fyfx_settings_group'); ?>
+            <?php settings_fields('sellkit_ypf_settings_group'); ?>
             <?php do_settings_sections('sellkit-ypf'); ?>
             <?php submit_button(); ?>
         </form>
@@ -54,8 +54,8 @@ function sellkit_fyfx_settings_page() {
         <div class="sellkit-ypf-import" style="width:50%;float:left;">
         <h3>Import Settings</h3>
         <form method="post" enctype="multipart/form-data">
-            <input type="file" name="sellkit_fyfx_import_file" accept=".json">
-            <button type="submit" class="button" name="sellkit_fyfx_import">Import Settings</button>
+            <input type="file" name="sellkit_ypf_import_file" accept=".json">
+            <button type="submit" class="button" name="sellkit_ypf_import">Import Settings</button>
         </form>
         </div>
     </div>
@@ -63,64 +63,65 @@ function sellkit_fyfx_settings_page() {
 }
 
 // Register settings
-function sellkit_fyfx_register_settings() {
-    register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_enable_plugin');
-    register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_enable_badges_payment');
-    register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_enable_terms_conditions');
-    register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_enable_css_editor');
-    register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_custom_css');
-    register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_custom_js');
+function sellkit_ypf_register_settings() {
+    register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_enable_plugin');
+    register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_enable_badges_payment');
+    register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_enable_terms_conditions');
+    register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_enable_css_editor');
+    register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_custom_css');
+    register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_custom_js');
 
-    add_settings_section('sellkit_fyfx_general_settings', 'General Settings', null, 'sellkit-ypf');
+    add_settings_section('sellkit_ypf_general_settings', 'General Settings', null, 'sellkit-ypf');
 
-    add_settings_section('sellkit_fyfx_general_settings', 'General Settings', 'sellkit_fyfx_general_settings_callback', 'sellkit-ypf');
+    add_settings_section('sellkit_ypf_general_settings', 'General Settings', 'sellkit_ypf_general_settings_callback', 'sellkit-ypf');
 
-    add_settings_field('sellkit_fyfx_enable_plugin', 'Enable Plugin', 'sellkit_fyfx_enable_plugin_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_enable_badges_payment', 'Enable Badges Payment', 'sellkit_fyfx_enable_badges_payment_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_enable_terms_conditions', 'Enable Terms and Conditions', 'sellkit_fyfx_enable_terms_conditions_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_enable_css_editor', 'Enable CSS/JS Editor', 'sellkit_fyfx_enable_css_editor_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_custom_css', 'Custom CSS', 'sellkit_fyfx_custom_css_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
-    add_settings_field('sellkit_fyfx_custom_js', 'Custom JS', 'sellkit_fyfx_custom_js_callback', 'sellkit-ypf', 'sellkit_fyfx_general_settings');
+    add_settings_field('sellkit_ypf_enable_plugin', 'Enable Plugin', 'sellkit_ypf_enable_plugin_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
+    add_settings_field('sellkit_ypf_enable_badges_payment', 'Enable Badges Payment', 'sellkit_ypf_enable_badges_payment_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
+    add_settings_field('sellkit_ypf_enable_terms_conditions', 'Enable Terms and Conditions', 'sellkit_ypf_enable_terms_conditions_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
+    add_settings_field('sellkit_ypf_enable_css_editor', 'Enable CSS/JS Editor', 'sellkit_ypf_enable_css_editor_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
+    add_settings_field('sellkit_ypf_custom_css', 'Custom CSS', 'sellkit_ypf_custom_css_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
+    add_settings_field('sellkit_ypf_custom_js', 'Custom JS', 'sellkit_ypf_custom_js_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
 }
-add_action('admin_init', 'sellkit_fyfx_register_settings');
+add_action('admin_init', 'sellkit_ypf_register_settings');
 
 // Callback function for the "General Settings" section
-function sellkit_fyfx_general_settings_callback() {
-    echo '<p>These are the general settings for the SellKit FX plugin. Please feel free to customize them according to your needs.</p>';
+function sellkit_ypf_general_settings_callback() {
+    echo '<p>These are the general settings for the SellKit YPF plugin. Please feel free to customize them according to your needs.</p>';
 }
 
 // Callback functions for settings fields
-function sellkit_fyfx_enable_plugin_callback() {
-    $value = get_option('sellkit_fyfx_enable_plugin', 'disable');
-    echo '<select name="sellkit_fyfx_enable_plugin"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
+function sellkit_ypf_enable_plugin_callback() {
+    $value = get_option('sellkit_ypf_enable_plugin', 'disable');
+    echo '<select name="sellkit_ypf_enable_plugin"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
 }
 
-function sellkit_fyfx_enable_badges_payment_callback() {
-    $value = get_option('sellkit_fyfx_enable_badges_payment', 'disable');
-    echo '<select name="sellkit_fyfx_enable_badges_payment"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
+function sellkit_ypf_enable_badges_payment_callback() {
+    $value = get_option('sellkit_ypf_enable_badges_payment', 'disable');
+    echo '<select name="sellkit_ypf_enable_badges_payment"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
 }
 
-function sellkit_fyfx_enable_terms_conditions_callback() {
-    $value = get_option('sellkit_fyfx_enable_terms_conditions', 'disable');
-    echo '<select name="sellkit_fyfx_enable_terms_conditions"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
+function sellkit_ypf_enable_terms_conditions_callback() {
+    $value = get_option('sellkit_ypf_enable_terms_conditions', 'disable');
+    echo '<select name="sellkit_ypf_enable_terms_conditions"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
 }
 
-function sellkit_fyfx_enable_css_editor_callback() {
-    $value = get_option('sellkit_fyfx_enable_css_editor', 'disable');
-    echo '<select name="sellkit_fyfx_enable_css_editor"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
+function sellkit_ypf_enable_css_editor_callback() {
+    $value = get_option('sellkit_ypf_enable_css_editor', 'disable');
+    echo '<select name="sellkit_ypf_enable_css_editor"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
 }
 
-function sellkit_fyfx_custom_css_callback() {
-    $value = get_option('sellkit_fyfx_custom_css', '');
-    echo '<textarea id="sellkit-ypf-css-editor" name="sellkit_fyfx_custom_css" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
+
+function sellkit_ypf_custom_css_callback() {
+    $value = get_option('sellkit_ypf_custom_css', '');
+    echo '<textarea id="sellkit-fyfx-css-editor" name="sellkit_ypf_custom_css" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
 }
 
-function sellkit_fyfx_custom_js_callback() {
-    $value = get_option('sellkit_fyfx_custom_js', '');
-    echo '<textarea id="sellkit-ypf-js-editor" name="sellkit_fyfx_custom_js" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
+function sellkit_ypf_custom_js_callback() {
+    $value = get_option('sellkit_ypf_custom_js', '');
+    echo '<textarea id="sellkit-fyfx-js-editor" name="sellkit_ypf_custom_js" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
 }
 
-function sellkit_fyfx_enqueue_scripts($hook) {
+function sellkit_ypf_enqueue_scripts($hook) {
     if ($hook != 'toplevel_page_sellkit-ypf') {
         return;
     }
@@ -134,21 +135,21 @@ function sellkit_fyfx_enqueue_scripts($hook) {
     wp_enqueue_code_editor(array('type' => 'text/css'));
     wp_enqueue_code_editor(array('type' => 'text/javascript'));
 }
-add_action('admin_enqueue_scripts', 'sellkit_fyfx_enqueue_scripts');
+add_action('admin_enqueue_scripts', 'sellkit_ypf_enqueue_scripts');
 
 
-function sellkit_fyfx_export_settings() {
-    if (!isset($_GET['sellkit_fyfx_export'])) {
+function sellkit_ypf_export_settings() {
+    if (!isset($_GET['sellkit_ypf_export'])) {
         return;
     }
 
     $settings = array(
-        'sellkit_fyfx_enable_plugin' => get_option('sellkit_fyfx_enable_plugin'),
-        'sellkit_fyfx_enable_badges_payment' => get_option('sellkit_fyfx_enable_badges_payment'),
-        'sellkit_fyfx_enable_terms_conditions' => get_option('sellkit_fyfx_enable_terms_conditions'),
-        'sellkit_fyfx_enable_css_editor' => get_option('sellkit_fyfx_enable_css_editor'),
-        'sellkit_fyfx_custom_css' => get_option('sellkit_fyfx_custom_css'),
-        'sellkit_fyfx_custom_js'  => get_option('sellkit_fyfx_custom_js'),
+        'sellkit_ypf_enable_plugin' => get_option('sellkit_ypf_enable_plugin'),
+        'sellkit_ypf_enable_badges_payment' => get_option('sellkit_ypf_enable_badges_payment'),
+        'sellkit_ypf_enable_terms_conditions' => get_option('sellkit_ypf_enable_terms_conditions'),
+        'sellkit_ypf_enable_css_editor' => get_option('sellkit_ypf_enable_css_editor'),
+        'sellkit_ypf_custom_css' => get_option('sellkit_ypf_custom_css'),
+        'sellkit_ypf_custom_js'  => get_option('sellkit_ypf_custom_js'),
         // Tambahkan pengaturan lainnya jika diperlukan
     );
     $current_date_time = date('Y-m-d_H-i-s');
@@ -157,14 +158,14 @@ function sellkit_fyfx_export_settings() {
     echo json_encode($settings);
     exit;
 }
-add_action('admin_init', 'sellkit_fyfx_export_settings');
+add_action('admin_init', 'sellkit_ypf_export_settings');
 
-function sellkit_fyfx_import_settings() {
-    if (!isset($_FILES['sellkit_fyfx_import_file'])) {
+function sellkit_ypf_import_settings() {
+    if (!isset($_FILES['sellkit_ypf_import_file'])) {
         return;
     }
 
-    $file = $_FILES['sellkit_fyfx_import_file'];
+    $file = $_FILES['sellkit_ypf_import_file'];
     if ($file['type'] !== 'application/json') {
         wp_die('Invalid file type.');
     }
@@ -181,40 +182,40 @@ function sellkit_fyfx_import_settings() {
     wp_redirect(add_query_arg('settings-imported', 'true', admin_url('admin.php?page=sellkit-ypf')));
     exit;
 }
-add_action('admin_init', 'sellkit_fyfx_import_settings');
+add_action('admin_init', 'sellkit_ypf_import_settings');
 
-function sellkit_fyfx_admin_scripts() {
+function sellkit_ypf_admin_scripts() {
     ?>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var exportButton = document.getElementById('sellkit-ypf-export');
             if (exportButton) {
                 exportButton.addEventListener('click', function() {
-                    window.location.href = '<?php echo admin_url('admin.php?page=sellkit-ypf&sellkit_fyfx_export=true'); ?>';
+                    window.location.href = '<?php echo admin_url('admin.php?page=sellkit-ypf&sellkit_ypf_export=true'); ?>';
                 });
             }
         });
     </script>
     <?php
 }
-add_action('admin_footer', 'sellkit_fyfx_admin_scripts');
+add_action('admin_footer', 'sellkit_ypf_admin_scripts');
 
 
 
 //------------------- Start Front End Functions --------------------------------
 
 // Check if the plugin is enabled and if the current request URI matches the given pattern
-function sellkit_fyfx_check_request_uri() {
-    if (get_option('sellkit_fyfx_enable_plugin') == 'enable') {
+function sellkit_ypf_check_request_uri() {
+    if (get_option('sellkit_ypf_enable_plugin') == 'enable') {
         if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') !== false) {
             add_action('init', 'replace_sellkit_action', 9999);
         }
     }
 }
-add_action('init', 'sellkit_fyfx_check_request_uri', 1); // Run this early on the 'init' hook
+add_action('init', 'sellkit_ypf_check_request_uri', 1); // Run this early on the 'init' hook
 
-add_filter( 'woocommerce_default_address_fields', 'sellkit_fyfx_custom_override_default_checkout_fields', 10, 1 );
-function sellkit_fyfx_custom_override_default_checkout_fields( $address_fields ) {
+add_filter( 'woocommerce_default_address_fields', 'sellkit_ypf_custom_override_default_checkout_fields', 10, 1 );
+function sellkit_ypf_custom_override_default_checkout_fields( $address_fields ) {
     $address_fields['address_1']['placeholder'] = __( 'Address *', 'woocommerce' );
 
     return $address_fields;
