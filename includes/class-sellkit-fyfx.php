@@ -72,7 +72,7 @@ class Sellkit_Fyfx {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'sellkit-ypf';
+		$this->plugin_name = 'sellkit-fyfx';
 
 		$this->load_dependencies();
 		$this->set_locale();
