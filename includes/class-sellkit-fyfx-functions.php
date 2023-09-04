@@ -96,8 +96,21 @@ function sellkit_fyfx_enable_css_editor_callback() {
 
 function sellkit_fyfx_custom_css_callback() {
     $value = get_option('sellkit_fyfx_custom_css', '');
-    echo '<textarea name="sellkit_fyfx_custom_css" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
+    echo '<textarea id="sellkit-fyfx-css-editor" name="sellkit_fyfx_custom_css" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
 }
+
+function sellkit_fyfx_enqueue_scripts($hook) {
+    if ($hook != 'toplevel_page_sellkit-fyfx') {
+        return;
+    }
+
+    // Enqueue CodeMirror scripts and styles
+    wp_enqueue_style('wp-codemirror');
+    wp_enqueue_script('wp-codemirror');
+    wp_enqueue_script('css-codemirror', plugins_url('../public/js/css-codemirror.js', __FILE__), array('wp-codemirror'), '1.0.0', true);
+}
+add_action('admin_enqueue_scripts', 'sellkit_fyfx_enqueue_scripts');
+
 
 
 // Check if the plugin is enabled and if the current request URI matches the given pattern
