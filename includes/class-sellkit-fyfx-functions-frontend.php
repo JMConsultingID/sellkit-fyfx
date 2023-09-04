@@ -110,12 +110,10 @@ function sellkit_fyfx_insert_badges_js() {
     ?>
     <script type="text/javascript">
         jQuery(document).on('sellkit:buttonMoved', function() {
-            if (window.innerWidth > 992) {
             var completeOrderButton = document.querySelector('.sellkit-checkout-right-column .sellkit-one-page-checkout-place-order');
             if (completeOrderButton) {
                 var badgesHTML = <?php echo json_encode(sellkit_fyfx_get_badges_html()); ?>;
                 completeOrderButton.insertAdjacentHTML('afterend', badgesHTML);
-            }
             }
         });
     </script>
