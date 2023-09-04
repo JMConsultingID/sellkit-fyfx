@@ -178,7 +178,7 @@ function sellkit_fyfx_import_settings() {
         update_option($key, $value);
     }
 
-    wp_redirect(add_query_arg('settings-imported', 'true', admin_url('admin.php?page=sellkit-fyfx')));
+    wp_redirect(add_query_arg('settings-imported', 'true', admin_url('admin.php?page=sellkit-ypf')));
     exit;
 }
 add_action('admin_init', 'sellkit_fyfx_import_settings');
@@ -190,7 +190,7 @@ function sellkit_fyfx_admin_scripts() {
             var exportButton = document.getElementById('sellkit-fyfx-export');
             if (exportButton) {
                 exportButton.addEventListener('click', function() {
-                    window.location.href = '<?php echo admin_url('admin.php?page=sellkit-fyfx&sellkit_fyfx_export=true'); ?>';
+                    window.location.href = '<?php echo admin_url('admin.php?page=sellkit-ypf&sellkit_fyfx_export=true'); ?>';
                 });
             }
         });
