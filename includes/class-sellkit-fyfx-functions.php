@@ -180,6 +180,23 @@ function sellkit_fyfx_import_settings() {
 }
 add_action('admin_init', 'sellkit_fyfx_import_settings');
 
+function sellkit_fyfx_admin_scripts() {
+    ?>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var exportButton = document.getElementById('sellkit-fyfx-export');
+            if (exportButton) {
+                exportButton.addEventListener('click', function() {
+                    window.location.href = '<?php echo admin_url('admin.php?page=sellkit-fyfx&sellkit_fyfx_export=true'); ?>';
+                });
+            }
+        });
+    </script>
+    <?php
+}
+add_action('admin_footer', 'sellkit_fyfx_admin_scripts');
+
+
 
 //------------------- Start Front End Functions --------------------------------
 
