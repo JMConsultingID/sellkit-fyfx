@@ -25,6 +25,11 @@ function sellkit_fyfx_add_terms_and_conditions_checkbox() {
         return;
     }
 
+    if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') === false) {
+        return;
+    }
+
+
     // Cek apakah opsi "term and condition" diaktifkan
     if (get_option('sellkit_fyfx_enable_terms_conditions') !== 'enable') {
         ?>
@@ -89,6 +94,10 @@ function sellkit_fyfx_get_badges_html() {
 function sellkit_fyfx_insert_badges_js() {
     // Cek apakah plugin diaktifkan
     if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
+        return;
+    }
+
+    if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') === false) {
         return;
     }
 
