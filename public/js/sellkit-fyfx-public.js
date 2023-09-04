@@ -48,13 +48,11 @@
     });
 	
 	jQuery(document).ready(function($) {
-	if (window.innerWidth > 992) {
 	   	var $completeOrderButton = $('.sellkit-one-page-checkout-place-order');
 	    var $termsCheckbox = $('.woocommerce-terms-and-conditions-wrapper');
 	    if ($completeOrderButton.length && $termsCheckbox.length) {
 	        $termsCheckbox.detach().insertBefore($completeOrderButton);
 	    }
-	}
 	});
 
 })( jQuery );
