@@ -55,6 +55,7 @@ function sellkit_fyfx_register_settings() {
     register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_enable_terms_conditions');
     register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_enable_css_editor');
     register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_custom_css');
+    register_setting('sellkit_fyfx_settings_group', 'sellkit_fyfx_custom_js');
 
     add_settings_section('sellkit_fyfx_general_settings', 'General Settings', null, 'sellkit-fyfx');
 
@@ -65,6 +66,7 @@ function sellkit_fyfx_register_settings() {
     add_settings_field('sellkit_fyfx_enable_terms_conditions', 'Enable Terms and Conditions', 'sellkit_fyfx_enable_terms_conditions_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
     add_settings_field('sellkit_fyfx_enable_css_editor', 'Enable CSS Editor', 'sellkit_fyfx_enable_css_editor_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
     add_settings_field('sellkit_fyfx_custom_css', 'Custom CSS', 'sellkit_fyfx_custom_css_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
+    add_settings_field('sellkit_fyfx_custom_js', 'Custom JS', 'sellkit_fyfx_custom_js_callback', 'sellkit-fyfx', 'sellkit_fyfx_general_settings');
 }
 add_action('admin_init', 'sellkit_fyfx_register_settings');
 
@@ -99,6 +101,12 @@ function sellkit_fyfx_custom_css_callback() {
     echo '<textarea id="sellkit-fyfx-css-editor" name="sellkit_fyfx_custom_css" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
 }
 
+function sellkit_fyfx_custom_js_callback() {
+    $value = get_option('sellkit_fyfx_custom_js', '');
+    echo '<textarea id="sellkit-fyfx-js-editor" name="sellkit_fyfx_custom_js" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
+}
+
+
 function sellkit_fyfx_enqueue_scripts($hook) {
     if ($hook != 'toplevel_page_sellkit-fyfx') {
         return;
@@ -111,6 +119,7 @@ function sellkit_fyfx_enqueue_scripts($hook) {
 
     // Enqueue the codemirror settings from WordPress
     wp_enqueue_code_editor(array('type' => 'text/css'));
+    wp_enqueue_code_editor(array('type' => 'text/javascript'));
 }
 add_action('admin_enqueue_scripts', 'sellkit_fyfx_enqueue_scripts');
 
