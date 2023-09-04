@@ -78,7 +78,7 @@ function sellkit_fyfx_insert_badges_js() {
     ?>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-            var completeOrderButton = document.querySelector('.complete-order');
+            var completeOrderButton = document.querySelector('.sellkit-one-page-checkout-place-order');
             if (completeOrderButton) {
                 var badgesHTML = <?php echo json_encode(sellkit_fyfx_get_badges_html()); ?>;
                 completeOrderButton.insertAdjacentHTML('afterend', badgesHTML);
