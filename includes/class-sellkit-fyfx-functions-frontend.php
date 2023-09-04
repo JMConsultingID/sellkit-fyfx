@@ -18,6 +18,31 @@ function replace_sellkit_action() {
     }
 }
 
+function sellkit_fyfx_add_terms_and_conditions_checkbox() {
+    // Cek apakah plugin diaktifkan
+    if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
+        return;
+    }
+
+    // Cek apakah opsi "term and condition" diaktifkan
+    if (get_option('sellkit_fyfx_enable_terms_conditions') !== 'enable') {
+        return;
+    }
+
+    if (!class_exists('WC_Checkout')) {
+        return;
+    }
+
+    $checkout = WC_Checkout::instance();
+
+    if ($checkout->get_value('terms') && apply_filters('woocommerce_checkout_show_terms', true) && function_exists('wc_terms_and_conditions_checkbox_enabled') && wc_terms_and_conditions_checkbox_enabled()) {
+        wc_get_template('checkout/terms.php');
+    }
+}
+if (get_option('sellkit_fyfx_enable_terms_conditions') !== 'enable') {
+add_action('wp_footer', 'sellkit_fyfx_add_terms_and_conditions_checkbox');
+}
+
 function sellkit_fyfx_enqueue_frontend_scripts() {
     // Cek apakah plugin diaktifkan
     if (get_option('sellkit_fyfx_enable_plugin') !== 'enable') {
