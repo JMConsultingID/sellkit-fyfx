@@ -30,7 +30,7 @@
 
 // Add menu item
 function sellkit_fyfx_add_admin_menu() {
-    add_menu_page('SellKit FX', 'SellKit FX', 'manage_options', 'sellkit-fyfx', 'sellkit_fyfx_settings_page', 'dashicons-cart', 58);
+    add_menu_page('SellKit FX', 'SellKit FX', 'manage_options', 'sellkit-fyfx', 'sellkit_fyfx_settings_page', 'dashicons-beer', 58);
 }
 add_action('admin_menu', 'sellkit_fyfx_add_admin_menu');
 
