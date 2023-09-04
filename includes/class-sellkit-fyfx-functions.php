@@ -70,7 +70,7 @@ add_action('admin_init', 'sellkit_fyfx_register_settings');
 
 // Callback function for the "General Settings" section
 function sellkit_fyfx_general_settings_callback() {
-    echo '<p>Ini adalah pengaturan umum untuk plugin SellKit FX. Silakan sesuaikan sesuai kebutuhan Anda.</p>';
+    echo '<p>These are the general settings for the SellKit FX plugin. Please feel free to customize them according to your needs.</p>';
 }
 
 // Callback functions for settings fields
