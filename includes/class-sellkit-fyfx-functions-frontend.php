@@ -34,7 +34,7 @@ function sellkit_fyfx_add_terms_and_conditions_checkbox() {
         return;
     }
 
-    echo "<div class='sellkit_enable_term'>".echo $value."</div>";
+    echo "<div class='sellkit_enable_term'>".$value."</div>";
 
     $checkout = WC_Checkout::instance();
 
