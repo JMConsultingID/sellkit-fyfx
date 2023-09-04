@@ -30,12 +30,14 @@
 	 */
 	
 	jQuery(document).ready(function($) {
-    var $completeOrderButton = $('.sellkit-one-page-checkout-place-order');
-    var $termsCheckbox = $('.woocommerce-terms-and-conditions-wrapper');
+		console.log('plugin sellkit enable');
+	   	var $completeOrderButton = $('.sellkit-one-page-checkout-place-order');
+	    var $termsCheckbox = $('.woocommerce-terms-and-conditions-wrapper');
 
-    if ($completeOrderButton.length && $termsCheckbox.length) {
-        $termsCheckbox.detach().insertBefore($completeOrderButton);
-    }
-});
+	    if ($completeOrderButton.length && $termsCheckbox.length) {
+	    	console.log('plugin sellkit di atas button order');
+	        $termsCheckbox.detach().insertBefore($completeOrderButton);
+	    }
+	});
 
 })( jQuery );
