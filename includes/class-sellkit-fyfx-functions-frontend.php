@@ -43,6 +43,10 @@ function sellkit_fyfx_enqueue_frontend_scripts() {
         return;
     }
 
+    if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') !== true) {
+        return;
+    }
+
     // Jika CSS Editor diaktifkan, tambahkan CSS ke frontend
     if (get_option('sellkit_fyfx_enable_css_editor') === 'enable') {
         $custom_css = get_option('sellkit_fyfx_custom_css');
