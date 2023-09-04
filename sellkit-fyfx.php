@@ -13,7 +13,7 @@
  * @package           Sellkit_Fyfx
  *
  * @wordpress-plugin
- * Plugin Name:       FYFX Checkout - Sellkit Add-on
+ * Plugin Name:       Sellkit Add-on - FYFX Checkout
  * Plugin URI:        https://fundyourfx.com
  * Description:       Plugin for Customize Sellkit Checkout Page
  * Version:           1.0.0
@@ -63,7 +63,8 @@ register_deactivation_hook( __FILE__, 'deactivate_sellkit_fyfx' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-fyfx.php';
-
+require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-fyfx-functions.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-fyfx-functions-frontend.php';
 /**
  * Begins execution of the plugin.
  *
