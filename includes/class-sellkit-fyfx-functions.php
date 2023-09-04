@@ -45,13 +45,13 @@ function sellkit_fyfx_settings_page() {
             <?php submit_button(); ?>
         </form>
         <hr>
-        <div class="sellkit-fyfx-export" style="width:50%">
+        <div class="sellkit-fyfx-export" style="width:50%;float:left;">
         <h3>Export Settings</h3>
         <p>
             <button type="button" class="button" id="sellkit-fyfx-export">Export Settings</button>
         </p>
         </div>
-        <div class="sellkit-fyfx-import" style="width:50%">
+        <div class="sellkit-fyfx-import" style="width:50%;float:left;">
         <h3>Import Settings</h3>
         <form method="post" enctype="multipart/form-data">
             <input type="file" name="sellkit_fyfx_import_file" accept=".json">
