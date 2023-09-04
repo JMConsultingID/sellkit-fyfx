@@ -27,16 +27,17 @@ function sellkit_fyfx_add_terms_and_conditions_checkbox() {
 
     // Cek apakah opsi "term and condition" diaktifkan
     if (get_option('sellkit_fyfx_enable_terms_conditions') !== 'enable') {
-        return;
-    }
-
-    if (!class_exists('WC_Checkout')) {
-        return;
-    }
-
-    $checkout = WC_Checkout::instance();
-
-  
+        ?>
+         <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+                var termsWrapper = document.querySelector('.woocommerce-terms-and-conditions-wrapper.sellkit-checkout-terms');
+                if (termsWrapper) {
+                    termsWrapper.style.display = 'none';
+                }
+            });
+        </script> 
+        <?php
+    }  
 }
 add_action('wp_footer', 'sellkit_fyfx_add_terms_and_conditions_checkbox');
 
