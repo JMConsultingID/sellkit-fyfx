@@ -56,17 +56,12 @@
 .sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
  .woocommerce-checkout-review-order-table .sellkit-checkout-widget-divider{
     border: 0!important;
- }
-
- @media only screen and (max-width: 600px) {
-   .sellkit-checkout-widget-main-wrapper .sellkit-one-page-checkout-place-order #place_order {
-     width: 100%!important;
-   }
-   .trustbadges-desktop {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        order: 5;
-    }
- }
+}
+@media only screen and (max-width: 600px) {
+   .sellkit-checkout-widget-main-wrapper .sellkit-one-page-checkout-place-order
+    #place_order { width: 100%!important; }
+   .trustbadges-desktop { display: -webkit-box; display: -webkit-flex;
+    display: -ms-flexbox; display: flex; order: 5; }
+   .sellkit-checkout-widget-multi-page-build
+    form .inner_wrapper .sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar
+    .summary_toggle { display: none!important; } }
