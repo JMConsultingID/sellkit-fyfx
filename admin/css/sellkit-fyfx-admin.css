@@ -5,10 +5,10 @@
 .sellkit-ypf-badges-wrapper { display: flex; flex-wrap: wrap; gap: 20px; /*
  Jarak antara badges */ margin-bottom: 20px; /* Jarak dari elemen di
  bawahnya */ }
-.sellkit-ypf-badge { position: relative; display: inline-block; }
-.sellkit-ypf-badge img { max-width: 100px; }
-.sellkit-ypf-badge-wrap-images{ height: 100px; border: 1px solid #ddd; padding:
+.sellkit-ypf-badge { position: relative; display: inline-block; border: 1px solid #ddd; padding:
  5px; border-radius: 5px;}
+.sellkit-ypf-badge img { max-width: 100px; }
+.sellkit-ypf-badge-wrap-images{ height: 100px; }
 .sellkit-ypf-remove-badge-button { display: block; /* Membuat tombol menjadi
  block-level agar mengambil seluruh lebar kontainer */ margin-top: 5px; /*
  Menambahkan margin di atas tombol */ background-color: #dc3232; /* Warna
