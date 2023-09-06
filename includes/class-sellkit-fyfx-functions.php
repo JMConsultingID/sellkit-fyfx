@@ -230,7 +230,7 @@ function sellkit_ypf_admin_scripts() {
                     var attachment = frame.state().get('selection').first().toJSON();
                     var badgeHTML = `
                         <div class="sellkit-ypf-badge">
-                            <input type="hidden" name="sellkit_ypf_badges[]" value="${attachment.url}" />
+                            <input type="hidden" name="sellkit_ypf_badges_images_payment[]" value="${attachment.url}" />
                             <img src="${attachment.url}" style="max-width:100px; display:block;" />
                             <button type="button" class="button sellkit-ypf-remove-badge-button">Remove</button>
                         </div>
