@@ -74,22 +74,26 @@ function sellkit_ypf_enqueue_frontend_scripts() {
 add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
 
 function sellkit_ypf_get_badges_html() {
-    return '
-    <div class="trustbadges items-center py-7 trustbadges-desktop">
-        <div class="trustbadges-item">
-            <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/norton.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/norton.png">
-        </div>
-        <div class="trustbadges-item">
-            <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/mcfee.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/mcfee.png">
-        </div>
-        <div class="trustbadges-item">
-            <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/visever.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/visever.png">
-        </div>
-        <div class="trustbadges-item">
-            <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/truste.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/truste.png">
-        </div>
-    </div>';
+    $badges = get_option('sellkit_ypf_badges_images_payment', array());
+
+    // Jika tidak ada badges, kembalikan string kosong atau pesan default
+    if (empty($badges)) {
+        return ''; // atau return 'No badges uploaded.';
+    }
+
+    $output = '<div class="trustbadges items-center py-7 trustbadges-desktop">';
+
+    foreach ($badges as $badge) {
+        $output .= '<div class="trustbadges-item">';
+        $output .= '<img data-src="' . esc_url($badge) . '" class="lazyloaded" src="' . esc_url($badge) . '">';
+        $output .= '</div>';
+    }
+
+    $output .= '</div>';
+
+    return $output;
 }
+
 
 function sellkit_ypf_insert_badges_js() {
     // Cek apakah plugin diaktifkan
