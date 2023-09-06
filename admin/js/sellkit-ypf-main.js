@@ -5,6 +5,13 @@
 	    $('#sellkit-ypf-add-badge-button').click(function(e) {
 	        e.preventDefault();
 
+	        // Cek jumlah gambar saat ini
+	        var currentBadges = $('.sellkit-ypf-badge').length;
+	        if (currentBadges >= 4) {
+	            alert('You can only upload a maximum of 4 badges.');
+	            return;
+	        }
+
 	        var frame = wp.media({
 	            title: 'Select or Upload Badge',
 	            button: {
@@ -32,5 +39,6 @@
 	        $(this).closest('.sellkit-ypf-badge').remove();
 	    });
 	});
+
 
 })( jQuery );
