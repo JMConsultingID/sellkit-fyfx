@@ -66,6 +66,7 @@ function sellkit_ypf_settings_page() {
 function sellkit_ypf_register_settings() {
     register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_enable_plugin');
     register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_enable_badges_payment');
+    register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_badges_images_payment');
     register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_enable_terms_conditions');
     register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_enable_css_editor');
     register_setting('sellkit_ypf_settings_group', 'sellkit_ypf_custom_css');
@@ -77,6 +78,7 @@ function sellkit_ypf_register_settings() {
 
     add_settings_field('sellkit_ypf_enable_plugin', 'Enable Plugin', 'sellkit_ypf_enable_plugin_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
     add_settings_field('sellkit_ypf_enable_badges_payment', 'Enable Badges Payment', 'sellkit_ypf_enable_badges_payment_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
+    add_settings_field('sellkit_ypf_badges_images_payment', 'Badge Pictures', 'sellkit_ypf_badges_images_payment_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
     add_settings_field('sellkit_ypf_enable_terms_conditions', 'Enable Terms and Conditions', 'sellkit_ypf_enable_terms_conditions_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
     add_settings_field('sellkit_ypf_enable_css_editor', 'Enable CSS/JS Editor', 'sellkit_ypf_enable_css_editor_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
     add_settings_field('sellkit_ypf_custom_css', 'Custom CSS', 'sellkit_ypf_custom_css_callback', 'sellkit-ypf', 'sellkit_ypf_general_settings');
@@ -99,6 +101,23 @@ function sellkit_ypf_enable_badges_payment_callback() {
     $value = get_option('sellkit_ypf_enable_badges_payment', 'disable');
     echo '<select name="sellkit_ypf_enable_badges_payment"><option value="enable"' . selected($value, 'enable', false) . '>Enable</option><option value="disable"' . selected($value, 'disable', false) . '>Disable</option></select>';
 }
+
+function sellkit_ypf_badges_images_payment_callback() {
+    $badges = get_option('sellkit_ypf_badges_images_payment', array());
+
+    echo '<div class="sellkit-ypf-badges-wrapper">';
+    foreach ($badges as $badge) {
+        echo '<div class="sellkit-ypf-badge">';
+        echo '<input type="hidden" name="sellkit_ypf_badges_images_payment[]" value="' . esc_attr($badge) . '" />';
+        echo '<img src="' . esc_url($badge) . '" style="max-width:100px; display:block;" />';
+        echo '<button type="button" class="button sellkit-ypf-remove-badge-button">Remove</button>';
+        echo '</div>';
+    }
+    echo '</div>';
+
+    echo '<button type="button" id="sellkit-ypf-add-badge-button" class="button">Add Badge</button>';
+}
+
 
 function sellkit_ypf_enable_terms_conditions_callback() {
     $value = get_option('sellkit_ypf_enable_terms_conditions', 'disable');
@@ -195,6 +214,38 @@ function sellkit_ypf_admin_scripts() {
                 });
             }
         });
+        jQuery(document).ready(function($) {
+            $('#sellkit-ypf-add-badge-button').click(function(e) {
+                e.preventDefault();
+
+                var frame = wp.media({
+                    title: 'Select or Upload Badge',
+                    button: {
+                        text: 'Use this badge'
+                    },
+                    multiple: false
+                });
+
+                frame.on('select', function() {
+                    var attachment = frame.state().get('selection').first().toJSON();
+                    var badgeHTML = `
+                        <div class="sellkit-ypf-badge">
+                            <input type="hidden" name="sellkit_ypf_badges[]" value="${attachment.url}" />
+                            <img src="${attachment.url}" style="max-width:100px; display:block;" />
+                            <button type="button" class="button sellkit-ypf-remove-badge-button">Remove</button>
+                        </div>
+                    `;
+                    $('.sellkit-ypf-badges-wrapper').append(badgeHTML);
+                });
+
+                frame.open();
+            });
+
+            $(document).on('click', '.sellkit-ypf-remove-badge-button', function() {
+                $(this).closest('.sellkit-ypf-badge').remove();
+            });
+        });
+
     </script>
     <?php
 }
