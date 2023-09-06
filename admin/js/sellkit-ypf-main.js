@@ -1,15 +1,6 @@
 (function( $ ) {
 	'use strict';
 
-	document.addEventListener('DOMContentLoaded', function() {
-        var exportButton = document.getElementById('sellkit-ypf-export');
-        if (exportButton) {
-            exportButton.addEventListener('click', function() {
-                window.location.href = '<?php echo admin_url('admin.php?page=sellkit-ypf&sellkit_ypf_export=true'); ?>';
-            });
-        }
-    });
-
 	jQuery(document).ready(function($) {
 	    $('#sellkit-ypf-add-badge-button').click(function(e) {
 	        e.preventDefault();
