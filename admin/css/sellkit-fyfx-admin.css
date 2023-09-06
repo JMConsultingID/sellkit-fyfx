@@ -1,35 +1,17 @@
 /**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
+ * All of the CSS for your admin-specific functionality should be included in
+ * this file.
  */
-.sellkit-ypf-badges-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Jarak antara badges */
-    margin-bottom: 20px; /* Jarak dari elemen di bawahnya */
-}
-
-.sellkit-ypf-badge {
-    position: relative;
-    display: inline-block;
-}
-
-.sellkit-ypf-badge img {
-    max-width: 100px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-
-.sellkit-ypf-remove-badge-button {
-    display: block; /* Membuat tombol menjadi block-level agar mengambil seluruh lebar kontainer */
-    margin-top: 5px; /* Menambahkan margin di atas tombol */
-    background-color: #dc3232; /* Warna latar belakang merah */
-    color: #fff; /* Warna teks putih */
-    border: none;
-    cursor: pointer;
-    border-radius: 3px; /* Membulatkan sudut tombol */
-    text-align: center;
-    font-size: 12px;
-}
+.sellkit-ypf-badges-wrapper { display: flex; flex-wrap: wrap; gap: 20px; /*
+ Jarak antara badges */ margin-bottom: 20px; /* Jarak dari elemen di
+ bawahnya */ }
+.sellkit-ypf-badge { position: relative; display: inline-block; }
+.sellkit-ypf-badge img { max-width: 100px; border: 1px solid #ddd; padding:
+ 5px; border-radius: 5px; }
+.sellkit-ypf-badge-wrap-images{ height: 100px; }
+.sellkit-ypf-remove-badge-button { display: block; /* Membuat tombol menjadi
+ block-level agar mengambil seluruh lebar kontainer */ margin-top: 5px; /*
+ Menambahkan margin di atas tombol */ background-color: #dc3232; /* Warna
+ latar belakang merah */ color: #fff; /* Warna teks putih */ border: none;
+ cursor: pointer; border-radius: 3px; /* Membulatkan sudut tombol */
+ text-align: center; font-size: 12px; }

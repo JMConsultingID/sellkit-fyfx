@@ -25,7 +25,9 @@
 	            var badgeHTML = `
 	                <div class="sellkit-ypf-badge">
 	                    <input type="hidden" name="sellkit_ypf_badges_images_payment[]" value="${attachment.url}" />
+	                    <div class="sellkit-ypf-badge-wrap-images">
 	                    <img src="${attachment.url}" style="max-width:100px; display:block;" />
+	                    </div>
 	                    <button type="button" class="button sellkit-ypf-remove-badge-button">Remove</button>
 	                </div>
 	            `;
