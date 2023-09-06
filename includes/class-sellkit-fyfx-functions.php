@@ -203,8 +203,27 @@ function sellkit_ypf_import_settings() {
 }
 add_action('admin_init', 'sellkit_ypf_import_settings');
 
+function sellkit_ypf_admin_scripts() {
+    ?>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var exportButton = document.getElementById('sellkit-ypf-export');
+            if (exportButton) {
+                exportButton.addEventListener('click', function() {
+                    window.location.href = '<?php echo admin_url('admin.php?page=sellkit-ypf&sellkit_ypf_export=true'); ?>';
+                });
+            }
+        });
+    </script>
+    <?php
+}
+add_action('admin_footer', 'sellkit_ypf_admin_scripts');
+
 
 function sellkit_ypf_enqueue_admin_scripts($hook) {
+    if ($hook != 'sellkit_ypf_settings_page') { 
+        return;
+    }
     wp_enqueue_media();  // Pastikan baris ini ada
 
     wp_enqueue_script('sellkit-ypf-admin', plugin_dir_url( __FILE__ ) . '../admin/js/sellkit-ypf-main.js', array('jquery'), '1.0.0', true);
