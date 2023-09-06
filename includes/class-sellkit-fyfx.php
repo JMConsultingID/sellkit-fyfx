@@ -152,6 +152,12 @@ class Sellkit_Fyfx {
 	 */
 	private function define_admin_hooks() {
 
+		if ($hook != 'settings_page_sellkit-ypf') { 
+	        return;
+	    }
+
+	    wp_enqueue_media();  // Pastikan baris ini ada
+
 		$plugin_admin = new Sellkit_Fyfx_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
