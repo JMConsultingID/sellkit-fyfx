@@ -114,7 +114,9 @@ function sellkit_ypf_badges_images_payment_callback() {
     foreach ($badges as $badge) {
         echo '<div class="sellkit-ypf-badge">';
         echo '<input type="hidden" name="sellkit_ypf_badges_images_payment[]" value="' . esc_attr($badge) . '" />';
+        echo '<div class="sellkit-ypf-badge-wrap-images">';
         echo '<img src="' . esc_url($badge) . '" style="max-width:100px; display:block;" />';
+        echo '</div>';
         echo '<button type="button" class="button sellkit-ypf-remove-badge-button">Remove</button>';
         echo '</div>';
     }

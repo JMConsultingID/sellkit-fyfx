@@ -78,7 +78,20 @@ function sellkit_ypf_get_badges_html() {
 
     // Jika tidak ada badges, kembalikan string kosong atau pesan default
     if (empty($badges)) {
-        return ''; // atau return 'No badges uploaded.';
+        return '<div class="trustbadges items-center py-7 trustbadges-desktop">
+                <div class="trustbadges-item">
+                    <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/norton.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/norton.png">
+                </div>
+                <div class="trustbadges-item">
+                    <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/mcfee.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/mcfee.png">
+                </div>
+                <div class="trustbadges-item">
+                    <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/visever.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/visever.png">
+                </div>
+                <div class="trustbadges-item">
+                    <img data-src="https://fundyourfx.com/wp-content/uploads/2022/12/truste.png" class="lazyloaded" src="https://fundyourfx.com/wp-content/uploads/2022/12/truste.png">
+                </div>
+            </div>'; // atau return 'No badges uploaded.';
     }
 
     $output = '<div class="trustbadges items-center py-7 trustbadges-desktop">';
