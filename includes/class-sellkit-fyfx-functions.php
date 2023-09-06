@@ -203,21 +203,6 @@ function sellkit_ypf_import_settings() {
 }
 add_action('admin_init', 'sellkit_ypf_import_settings');
 
-function sellkit_ypf_admin_scripts() {
-    ?>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var exportButton = document.getElementById('sellkit-ypf-export');
-            if (exportButton) {
-                exportButton.addEventListener('click', function() {
-                    window.location.href = '<?php echo admin_url('admin.php?page=sellkit-ypf&sellkit_ypf_export=true'); ?>';
-                });
-            }
-        });
-    </script>
-    <?php
-}
-add_action('admin_footer', 'sellkit_ypf_admin_scripts');
 
 function sellkit_ypf_enqueue_admin_scripts($hook) {
     if ($hook != 'settings_page_sellkit-ypf') { 
