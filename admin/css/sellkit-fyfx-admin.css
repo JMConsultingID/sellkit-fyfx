@@ -21,18 +21,15 @@
     border-radius: 5px;
 }
 
+
 .sellkit-ypf-remove-badge-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: rgba(255, 0, 0, 0.7);
-    color: #fff;
+    display: block; /* Membuat tombol menjadi block-level agar mengambil seluruh lebar kontainer */
+    margin-top: 5px; /* Menambahkan margin di atas tombol */
+    background-color: #dc3232; /* Warna latar belakang merah */
+    color: #fff; /* Warna teks putih */
     border: none;
     cursor: pointer;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    line-height: 18px;
+    border-radius: 3px; /* Membulatkan sudut tombol */
     text-align: center;
     font-size: 12px;
 }
