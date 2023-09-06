@@ -105,6 +105,11 @@ function sellkit_ypf_enable_badges_payment_callback() {
 function sellkit_ypf_badges_images_payment_callback() {
     $badges = get_option('sellkit_ypf_badges_images_payment', array());
 
+    // Pastikan $badges adalah array
+    if (!is_array($badges)) {
+        $badges = array();
+    }
+
     echo '<div class="sellkit-ypf-badges-wrapper">';
     foreach ($badges as $badge) {
         echo '<div class="sellkit-ypf-badge">';
