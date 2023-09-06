@@ -219,6 +219,18 @@ function sellkit_ypf_admin_scripts() {
 }
 add_action('admin_footer', 'sellkit_ypf_admin_scripts');
 
+function sellkit_ypf_enqueue_admin_scripts($hook) {
+    if ($hook != 'settings_page_sellkit-ypf') { 
+        return;
+    }
+
+    wp_enqueue_media();  // Pastikan baris ini ada
+
+    wp_enqueue_script('sellkit-ypf-admin', plugin_dir_url( __FILE__ ) . '../admin/js/sellkit-ypf-main.js', array('jquery'), '1.0.0', true);
+}
+add_action('admin_enqueue_scripts', 'sellkit_ypf_enqueue_admin_scripts');
+
+
 
 
 //------------------- Start Front End Functions --------------------------------

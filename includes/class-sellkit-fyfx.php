@@ -151,7 +151,6 @@ class Sellkit_Fyfx {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-	    wp_enqueue_media();  // Pastikan baris ini ada
 
 		$plugin_admin = new Sellkit_Fyfx_Admin( $this->get_plugin_name(), $this->get_version() );
 
